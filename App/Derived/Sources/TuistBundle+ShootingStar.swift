@@ -8,14 +8,14 @@ import Foundation
 private class BundleFinder {}
 
 extension Foundation.Bundle {
-    /// Since Appjam is a application, the bundle for classes within this module can be used directly.
+    /// Since ShootingStar is a application, the bundle for classes within this module can be used directly.
     static let module = Bundle(for: BundleFinder.self)
 }
 
 // MARK: - Objective-C Bundle Accessor
 
 @objc
-public class AppjamResources: NSObject {
+public class ShootingStarResources: NSObject {
     @objc public class var bundle: Bundle {
         return .module
     }

@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
            
             window?.rootViewController = controller
             window?.makeKeyAndVisible()
-        }
 //    func scene(
 //        _ scene: UIScene,
 //        willConnectTo session: UISceneSession,

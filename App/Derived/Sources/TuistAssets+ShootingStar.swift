@@ -19,14 +19,14 @@
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-public enum AppjamAsset {
-  public static let accentColor = AppjamColors(name: "AccentColor")
+public enum ShootingStarAsset {
+  public static let accentColor = ShootingStarColors(name: "AccentColor")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
 // MARK: - Implementation Details
 
-public final class AppjamColors {
+public final class ShootingStarColors {
   public fileprivate(set) var name: String
 
   #if os(macOS)
@@ -55,10 +55,10 @@ public final class AppjamColors {
   }
 }
 
-public extension AppjamColors.Color {
+public extension ShootingStarColors.Color {
   @available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *)
-  convenience init?(asset: AppjamColors) {
-    let bundle = AppjamResources.bundle
+  convenience init?(asset: ShootingStarColors) {
+    let bundle = ShootingStarResources.bundle
     #if os(iOS) || os(tvOS)
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
     #elseif os(macOS)
@@ -72,8 +72,8 @@ public extension AppjamColors.Color {
 #if canImport(SwiftUI)
 public extension SwiftUI.Color {
   @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-  init(asset: AppjamColors) {
-    let bundle = AppjamResources.bundle
+  init(asset: ShootingStarColors) {
+    let bundle = ShootingStarResources.bundle
     self.init(asset.name, bundle: bundle)
   }
 }
