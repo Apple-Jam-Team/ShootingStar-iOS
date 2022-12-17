@@ -2,6 +2,7 @@ import UIKit
 import Then
 import SnapKit
 import RxSwift
+import FirebaseAuth
 import RxCocoa
 
 class OnBoardingVC: BaseVC<OnBoardingViewModel> {
@@ -20,6 +21,11 @@ class OnBoardingVC: BaseVC<OnBoardingViewModel> {
         $0.layer.cornerRadius = 20
     }
     override func configureVC() {
+        
+        if Auth.auth().currentUser != nil {
+            self.navigationController?.setViewControllers([MainTabBar(nibName: nil, bundle: nil)], animated: true)
+        }
+        
         view.backgroundColor = ShootingStarAsset.Colors.main.color
         goToSignInButton.rx.tap
             .subscribe(onNext: {
