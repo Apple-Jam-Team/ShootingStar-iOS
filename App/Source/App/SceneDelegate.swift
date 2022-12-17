@@ -8,20 +8,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     private let disposeBag: DisposeBag = .init()
     private let coordinator: FlowCoordinator = .init()
-    
-    let appFlow = AppFlow()
-    let appStepper = AppStepper()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
             // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
             // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
             // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-            guard let c = (scene as? UIWindowScene) else { return }
-            window = UIWindow(windowScene: c)
-        let controller = MainVC(viewModel: BaseViewModel.init())
-           
-            window?.rootViewController = controller
-            window?.makeKeyAndVisible()
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+
+        let mainViewController = OnBoardingVC(viewModel: BaseViewModel.init())
+        let naviMainViewController = UINavigationController(rootViewController: mainViewController)
+        window?.rootViewController = naviMainViewController
+        window?.makeKeyAndVisible()
 //    func scene(
 //        _ scene: UIScene,
 //        willConnectTo session: UISceneSession,
