@@ -3,7 +3,7 @@ import RxRelay
 import RxCocoa
 import RxSwift
 
-class OnBoardingViewModel: BaseVM {
+class MainViewModel: BaseVM {
    struct Input {
    }
    

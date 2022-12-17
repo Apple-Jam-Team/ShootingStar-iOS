@@ -7,7 +7,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let c = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: c)
-        let controller = MainVC(viewModel: BaseViewModel.init())
+        let controller = MainVC(viewModel: MainViewModel.init())
 
         window?.rootViewController = controller
         window?.makeKeyAndVisible()
