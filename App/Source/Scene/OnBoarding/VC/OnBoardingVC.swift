@@ -11,19 +11,23 @@ class OnBoardingVC: BaseVC<OnBoardingViewModel> {
     }
     private let goToSignInButton = UIButton().then {
         $0.setTitle("로그인", for: .normal)
-        $0.backgroundColor = UIColor(.disabledButton)
+        $0.backgroundColor = UIColor(named: "LightBlack")
         $0.layer.cornerRadius = 20
     }
     private let goToSignUpButton = UIButton().then {
         $0.setTitle("회원가입", for: .normal)
-        $0.backgroundColor = UIColor(.disabledButton)
+        $0.backgroundColor = UIColor(named: "LightBlack")
         $0.layer.cornerRadius = 20
     }
     override func configureVC() {
-        view.backgroundColor = UIColor(.main)
+        view.backgroundColor = UIColor(named: "Main")
         goToSignInButton.rx.tap
             .subscribe(onNext: {
-                self.navigationController?.pushViewController(SignInVC(viewModel: BaseViewModel.init()), animated: true)
+                self.navigationController?.pushViewController(SignInVC(viewModel: SigninVM()), animated: true)
+            }).disposed(by: disposeBag)
+        goToSignUpButton.rx.tap
+            .subscribe(onNext: {
+                self.navigationController?.pushViewController(SignupVC(viewModel: SignupVM()), animated: true)
             }).disposed(by: disposeBag)
     }
     
@@ -40,13 +44,12 @@ class OnBoardingVC: BaseVC<OnBoardingViewModel> {
     override func setLayout() {
         titleImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaInsets.top).inset(134)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(134)
         }
         goToSignInButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(goToSignUpButton.snp.top).inset(-20)
-            $0.leading.equalTo(view.safeAreaInsets.left).inset(65)
-            $0.trailing.equalTo(view.safeAreaInsets.right).inset(65)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(65)
             $0.height.equalTo(50)
         }
         goToSignUpButton.snp.makeConstraints {
