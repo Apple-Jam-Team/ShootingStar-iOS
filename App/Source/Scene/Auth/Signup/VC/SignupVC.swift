@@ -113,7 +113,7 @@ class SignupVC: BaseVC<SignupVM> {
             }).disposed(by: disposeBag)
         alreadyUserButton.rx.tap
             .subscribe(onNext: {
-                self.navigationController?.pushViewController(SignInVC(viewModel: SigninVM()), animated: true)
+                self.navigationController?.pushViewController(SignInVC(viewModel: .init()), animated: true)
             }).disposed(by: disposeBag)
     }
     override func addView() {

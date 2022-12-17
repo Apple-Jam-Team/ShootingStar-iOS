@@ -48,11 +48,17 @@ public enum ShootingStarAsset {
     public static let black = ShootingStarColors(name: "Black")
     public static let darkGary = ShootingStarColors(name: "DarkGary")
     public static let error = ShootingStarColors(name: "ERROR")
+    public static let lightBlack = ShootingStarColors(name: "LightBlack")
     public static let lightGary = ShootingStarColors(name: "LightGary")
     public static let main = ShootingStarColors(name: "Main")
   }
   public enum Image {
     public static let shottingStar = ShootingStarImages(name: "ShottingStar")
+    public static let star = ShootingStarImages(name: "Star")
+    public static let user1 = ShootingStarImages(name: "user1")
+    public static let user2 = ShootingStarImages(name: "user2")
+    public static let user3 = ShootingStarImages(name: "user3")
+    public static let user4 = ShootingStarImages(name: "user4")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
@@ -102,6 +108,16 @@ public extension ShootingStarColors.Color {
   }
 }
 
+#if canImport(SwiftUI)
+public extension SwiftUI.Color {
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  init(asset: ShootingStarColors) {
+    let bundle = ShootingStarResources.bundle
+    self.init(asset.name, bundle: bundle)
+  }
+}
+#endif
+
 public struct ShootingStarImages {
   public fileprivate(set) var name: String
 
@@ -125,6 +141,13 @@ public struct ShootingStarImages {
     }
     return result
   }
+
+  #if canImport(SwiftUI)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public var swiftUIImage: SwiftUI.Image {
+    SwiftUI.Image(asset: self)
+  }
+  #endif
 }
 
 public extension ShootingStarImages.Image {
@@ -141,6 +164,26 @@ public extension ShootingStarImages.Image {
     #endif
   }
 }
+
+#if canImport(SwiftUI)
+@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+public extension SwiftUI.Image {
+  init(asset: ShootingStarImages) {
+    let bundle = ShootingStarResources.bundle
+    self.init(asset.name, bundle: bundle)
+  }
+
+  init(asset: ShootingStarImages, label: Text) {
+    let bundle = ShootingStarResources.bundle
+    self.init(asset.name, bundle: bundle, label: label)
+  }
+
+  init(decorative asset: ShootingStarImages) {
+    let bundle = ShootingStarResources.bundle
+    self.init(decorative: asset.name, bundle: bundle)
+  }
+}
+#endif
 
 // swiftlint:enable all
 // swiftformat:enable all
