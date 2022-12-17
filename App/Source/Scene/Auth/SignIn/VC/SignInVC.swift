@@ -3,7 +3,7 @@ import Firebase
 import Then
 import SnapKit
 
-class SignInVC: BaseVC<BaseViewModel> {
+class SignInVC: BaseVC<SigninViewModel> {
     private var emailTF = UITextField().then {
         $0.placeholder = "이메일을 입력하세요"
     }

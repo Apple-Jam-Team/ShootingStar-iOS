@@ -2,6 +2,7 @@ import UIKit
 import Then
 import SnapKit
 import RxCocoa
+import Foundation
 import RxSwift
 
 class ProductView: UIView {
@@ -54,7 +55,11 @@ class ProductView: UIView {
         
         attribute()
         layout()
-        let FullPath = "/Users/userName/Desktop/GetNotice.json"
+        let fileManager = FileManager.default
+        let FullPath = "GetNotice.json"
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let path = documentDirectory?.appendingPathComponent(FullPath)
+        print(path)
         if let data = try? String(contentsOfFile: FullPath).data(using: .utf8) {
                 let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String : Any]]
                 print(json)

@@ -1,6 +1,6 @@
 import UIKit
 
-class MainVC: BaseVC<BaseViewModel> {
+class MainVC: BaseVC<MainViewModel> {
 
     override func configureVC() {
         view.backgroundColor = .systemBackground
