@@ -11,7 +11,7 @@ class OnBoardingVC: BaseVC<OnBoardingViewModel> {
     }
     private let goToSignInButton = UIButton().then {
         $0.setTitle("로그인", for: .normal)
-        $0.backgroundColor = UIColor(named: "LightBlack")
+        $0.backgroundColor = ShootingStarAsset.Colors.lightGary.color
         $0.layer.cornerRadius = 20
     }
     private let goToSignUpButton = UIButton().then {
