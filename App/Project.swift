@@ -11,7 +11,8 @@ let project = Project.makeModule(
         .RxFlow,
         .RxDataSources,
         .Swinject,
-        .FirebaseAuth
+        .FirebaseAuth,
+        .Tabman
     ],
     dependencies: [
         .SPM.SnapKit,
@@ -21,7 +22,8 @@ let project = Project.makeModule(
         .SPM.RxDataSources,
         .SPM.RxCocoa,
         .SPM.Swinject,
-        .SPM.FirebaseAuth
+        .SPM.FirebaseAuth,
+        .SPM.Tabman
     ],
     resources: ["Resource/**"],
     infoPlist: .file(path: "Support/Info.plist")

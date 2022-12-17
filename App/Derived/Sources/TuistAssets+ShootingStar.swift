@@ -20,7 +20,16 @@
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum ShootingStarAsset {
-  public static let accentColor = ShootingStarColors(name: "AccentColor")
+  public enum Assets {
+    public static let accentColor = ShootingStarColors(name: "AccentColor")
+  }
+  public enum Colors {
+    public static let black = ShootingStarColors(name: "Black")
+    public static let darkGary = ShootingStarColors(name: "DarkGary")
+    public static let error = ShootingStarColors(name: "ERROR")
+    public static let lightGary = ShootingStarColors(name: "LightGary")
+    public static let main = ShootingStarColors(name: "Main")
+  }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
