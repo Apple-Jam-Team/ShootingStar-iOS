@@ -25,6 +25,10 @@ class OnBoardingVC: BaseVC<OnBoardingViewModel> {
             .subscribe(onNext: {
                 self.navigationController?.pushViewController(SignInVC(viewModel: .init()), animated: true)
             }).disposed(by: disposeBag)
+        goToSignUpButton.rx.tap
+            .subscribe(onNext: {
+                self.navigationController?.pushViewController(SignupVC(viewModel: SignupVM()), animated: true)
+            }).disposed(by: disposeBag)
     }
     
     override func addView() {
@@ -40,13 +44,12 @@ class OnBoardingVC: BaseVC<OnBoardingViewModel> {
     override func setLayout() {
         titleImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaInsets.top).inset(134)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(134)
         }
         goToSignInButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(goToSignUpButton.snp.top).inset(-20)
-            $0.leading.equalTo(view.safeAreaInsets.left).inset(65)
-            $0.trailing.equalTo(view.safeAreaInsets.right).inset(65)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(65)
             $0.height.equalTo(50)
         }
         goToSignUpButton.snp.makeConstraints {
