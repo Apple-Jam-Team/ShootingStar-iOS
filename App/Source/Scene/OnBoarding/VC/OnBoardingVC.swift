@@ -16,14 +16,14 @@ class OnBoardingVC: BaseVC<OnBoardingViewModel> {
     }
     private let goToSignUpButton = UIButton().then {
         $0.setTitle("회원가입", for: .normal)
-        $0.backgroundColor = UIColor(named: "LightBlack")
+        $0.backgroundColor = ShootingStarAsset.Colors.lightGary.color
         $0.layer.cornerRadius = 20
     }
     override func configureVC() {
-        view.backgroundColor = UIColor(named: "Main")
+        view.backgroundColor = ShootingStarAsset.Colors.main.color
         goToSignInButton.rx.tap
             .subscribe(onNext: {
-                self.navigationController?.pushViewController(SignInVC(viewModel: SigninVM()), animated: true)
+                self.navigationController?.pushViewController(SignInVC(viewModel: .init()), animated: true)
             }).disposed(by: disposeBag)
         goToSignUpButton.rx.tap
             .subscribe(onNext: {
