@@ -61,6 +61,48 @@ extension CategorySectionView: UICollectionViewDelegateFlowLayout {
             height: CategorySectionViewCell.height
         )
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        
+        if indexPath.row == 0 {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        } else if indexPath.row == 1 {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        } else if indexPath.row == 2 {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        } else if indexPath.row == 3 {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        } else if indexPath.row == 4 {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        } else if indexPath.row == 5 {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        } else if indexPath.row == 6 {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        } else if indexPath.row == 7 {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        } else {
+            let detailViewController = CategoryDetailViewController()
+            detailViewController.modalPresentationStyle = .fullScreen
+            controller.navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
 }
 
 extension CategorySectionView {

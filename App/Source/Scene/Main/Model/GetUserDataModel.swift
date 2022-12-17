@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GetUserDataModel: Codable {
+struct GetCoinListModel: Codable {
     let name, email, image, noticeCount: String
 }
 

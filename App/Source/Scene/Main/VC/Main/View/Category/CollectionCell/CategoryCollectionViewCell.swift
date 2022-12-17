@@ -1,14 +1,20 @@
-import SnapKit
-import Then
+//
+//  CategoryCollectionViewCell.swift
+//  
+//
+//  Created by 박준하 on 2022/12/18.
+//
+
 import UIKit
+import Then
+import SnapKit
 
-final class ProductCell: UICollectionViewCell {
-    static var height: CGFloat { 310.0 }
-    static var width: CGFloat { 220.0 }
+// Cell
+class CategoryCollectionViewCell : UICollectionViewCell {
     
-    static var identifier = "ProductCell"
-
-    private lazy var imageView: UIImageView = {
+    static let identifier = "cell3"
+    
+    var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.gray
         imageView.layer.cornerRadius = 20.0
@@ -16,20 +22,20 @@ final class ProductCell: UICollectionViewCell {
         return imageView
     }()
     
-    private lazy var titleLabel = UILabel().then {
+    var titleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14.0, weight: .bold)
         $0.textColor = .white
         $0.text = "상품"
     }
     
-    private lazy var descriptionLabel = UILabel().then {
+    var descriptionLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14.0, weight: .regular)
         $0.textColor = .white
         $0.numberOfLines = 0
         $0.text = "Made by appJam"
     }
 
-    private lazy var PriceLabel = UILabel().then {
+    var PriceLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16.0, weight: .bold)
         $0.textColor = .white
         $0.text = "1,000,000원"
@@ -41,7 +47,7 @@ final class ProductCell: UICollectionViewCell {
 }
 
 // MARK: Private
-private extension ProductCell {
+private extension CategoryCollectionViewCell {
     func setupLayout() {
         [
             imageView,
@@ -54,8 +60,8 @@ private extension ProductCell {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(220.0)
-            $0.width.equalTo(220.0)
+            $0.height.equalTo(100.0)
+            $0.width.equalTo(100.0)
         }
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
@@ -71,3 +77,4 @@ private extension ProductCell {
         }
     }
 }
+
