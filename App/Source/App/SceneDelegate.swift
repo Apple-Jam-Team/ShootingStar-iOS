@@ -8,7 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 
-        let mainViewController = MainTabBar(nibName: nil, bundle: nil)
+        let mainViewController = MyPageVC(viewModel: .init())
         let naviMainViewController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = naviMainViewController
         window?.makeKeyAndVisible()
