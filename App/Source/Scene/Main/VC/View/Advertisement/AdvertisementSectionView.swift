@@ -5,7 +5,17 @@ import UIKit
 final class AdvertisementSectionView: UIView {
     private final var controller: UIViewController
     
-//    var userGraphModelList = [UserGraphListModel]()
+    var images = ["Image", "Image", "Image", "Image", "Image", "Image"]
+    
+    @objc
+    private func pageControlDidTap(_ sender: UIPageControl) {
+        let current = sender.currentPage
+        pageScrollView.setContentOffset(CGPoint(x: CGFloat(current) * controller.view.frame.size.width, y: 0), animated: true)
+    }
+    
+    private let pageControl = UIPageControl().then {
+        $0.addTarget(AdvertisementSectionView.self, action: #selector(pageControlDidTap), for: .valueChanged)
+    }
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -14,10 +24,8 @@ final class AdvertisementSectionView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        //딱딱하나씩 끈어질 수 있도록하는 것
         collectionView.isPagingEnabled = true
         collectionView.backgroundColor = .systemBackground
-        //스크롤바 표시
         collectionView.showsHorizontalScrollIndicator = false
 
         collectionView.register(
@@ -27,8 +35,43 @@ final class AdvertisementSectionView: UIView {
 
         return collectionView
     }()
+    
+    internal lazy var pageScrollView = UIScrollView().then {
+        $0.showsHorizontalScrollIndicator = false
+        $0.isPagingEnabled = true
+        $0.backgroundColor = .red
+    }
+    
+    private let pageContentView = UIView()
 
     private let separatorView = SeparatorView(frame: .zero)
+    
+    private func addContentScrollView() {
+        
+        
+        for i in 0..<images.count {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: images[i])
+            pageContentView.addSubview(imageView)
+            imageView.snp.makeConstraints {
+                $0.centerX.equalTo(controller.view.frame.width / 2 + controller.view.frame.width * CGFloat(i))
+                $0.height.equalToSuperview()
+                $0.width.equalTo(pageScrollView.snp.width).multipliedBy(0.9)
+                $0.top.equalToSuperview()
+            }
+        }
+    }
+    
+    func addView() {
+        [
+            pageScrollView,
+            pageControl
+        ].forEach { controller.view.addSubview($0) }
+        self.pageScrollView.addSubview(pageContentView)
+        pageScrollView.contentSize = pageContentView.frame.size
+        addContentScrollView()
+        setPageControl()
+    }
 
     init(frame: CGRect, viewController: UIViewController) {
         controller = viewController
@@ -36,9 +79,10 @@ final class AdvertisementSectionView: UIView {
         
         attribute()
         layout()
+        addView()
+        addContentScrollView()
+        setPageControl()
         collectionView.reloadData()
-        
-//        collectionView.layer.cornerRadius = 20
     }
     
     required init?(coder: NSCoder) {
@@ -56,14 +100,6 @@ extension AdvertisementSectionView: UICollectionViewDataSource {
         cell.backgroundColor = UIColor.gray
         return cell
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let selectedSuggesion = userGraphModelList[indexPath.row]
-//        print(userGraphModelList[indexPath.row])
-//        let detailViewController = UserGraphListDetileViewController()
-//        detailViewController.userGraphList = selectedSuggesion
-//        controller.present(detailViewController, animated: true)
-//    }
 }
 
 extension AdvertisementSectionView: UICollectionViewDelegateFlowLayout {
@@ -102,6 +138,23 @@ private extension AdvertisementSectionView {
             $0.height.equalTo(120)
             $0.width.equalTo(370)
             $0.bottom.equalToSuperview()
+        }
+    }
+}
+
+extension AdvertisementSectionView : UIScrollViewDelegate {
+    private func setPageControl() {
+        pageControl.numberOfPages = images.count
+    }
+    
+    private func setPageControlSelectedPage(currentPage:Int) {
+        pageControl.currentPage = currentPage
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == pageScrollView {
+            let value = scrollView.contentOffset.x/scrollView.bounds.size.width
+            setPageControlSelectedPage(currentPage: Int(round(value)))
         }
     }
 }

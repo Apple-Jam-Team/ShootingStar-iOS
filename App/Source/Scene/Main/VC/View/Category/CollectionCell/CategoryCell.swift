@@ -6,7 +6,7 @@ final class CategorySectionViewCell: UICollectionViewCell {
     static let identifier = "CategoryCollectionViewCell"
     static var height: CGFloat { 100.0 }
     static var width: CGFloat { 100.0 }
-
+    
     internal lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .gray
