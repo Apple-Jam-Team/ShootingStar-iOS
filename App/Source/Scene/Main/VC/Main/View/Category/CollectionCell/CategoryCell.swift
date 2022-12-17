@@ -9,7 +9,7 @@ final class CategorySectionViewCell: UICollectionViewCell {
     
     internal lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .gray
+        imageView.backgroundColor = .black
         imageView.layer.borderColor = UIColor.tertiaryLabel.cgColor
         imageView.layer.borderWidth = 0.5
         imageView.layer.cornerRadius = 20.0
@@ -19,7 +19,7 @@ final class CategorySectionViewCell: UICollectionViewCell {
     
     internal lazy var titleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16.0, weight: .bold)
-        $0.textColor = .label
+        $0.textColor = .white
         $0.numberOfLines = 2
         $0.text = "추천🔔"
     }

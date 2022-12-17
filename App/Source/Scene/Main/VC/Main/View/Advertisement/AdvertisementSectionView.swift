@@ -84,6 +84,7 @@ final class AdvertisementSectionView: UIView {
         addContentScrollView()
         setPageControl()
         collectionView.reloadData()
+        controller.view.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
