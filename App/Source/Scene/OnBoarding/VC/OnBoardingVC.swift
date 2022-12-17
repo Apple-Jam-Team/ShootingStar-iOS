@@ -4,7 +4,8 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class OnBoardingVC: BaseVC<BaseViewModel> {
+class OnBoardingVC: BaseVC<OnBoardingViewModel> {
+
     private let titleImage = UIImageView().then {
         $0.image = UIImage(named: "ShottingStar")
     }
@@ -35,6 +36,7 @@ class OnBoardingVC: BaseVC<BaseViewModel> {
             view.addSubview($0)
         }
     }
+
     override func setLayout() {
         titleImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
