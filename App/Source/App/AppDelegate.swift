@@ -1,11 +1,8 @@
 import UIKit
-import Swinject
 import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    static let container = Container()
-    var assembler: Assembler!
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?

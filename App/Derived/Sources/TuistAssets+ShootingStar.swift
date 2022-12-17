@@ -10,6 +10,9 @@
 #elseif os(tvOS) || os(watchOS)
   import UIKit
 #endif
+#if canImport(SwiftUI)
+  import SwiftUI
+#endif
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
@@ -40,10 +43,6 @@ public enum ShootingStarAsset {
     public static let image7 = ShootingStarImages(name: "image7")
     public static let image8 = ShootingStarImages(name: "image8")
     public static let image9 = ShootingStarImages(name: "image9")
-  }
-  public enum Color {
-    public static let disabledButton = ShootingStarColors(name: "DisabledButton")
-    public static let main = ShootingStarColors(name: "Main")
   }
   public enum Colors {
     public static let black = ShootingStarColors(name: "Black")
@@ -76,6 +75,13 @@ public final class ShootingStarColors {
     }
     return color
   }()
+
+  #if canImport(SwiftUI)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public private(set) lazy var swiftUIColor: SwiftUI.Color = {
+    SwiftUI.Color(asset: self)
+  }()
+  #endif
 
   fileprivate init(name: String) {
     self.name = name
