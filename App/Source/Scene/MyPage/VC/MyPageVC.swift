@@ -72,9 +72,8 @@ class MyPageVC: BaseVC<MyPageViewModel> {
     }
     
     private let button1 = UIButton().then {
-        $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        $0.setImage(UIImage(systemName: "trash"), for: .normal)
         $0.tintColor = .black
-        $0.transform = CGAffineTransform(rotationAngle: .pi * 0.5)
     }
     
     private let imageView2 = UIImageView().then {
@@ -92,9 +91,8 @@ class MyPageVC: BaseVC<MyPageViewModel> {
     }
     
     private let button2 = UIButton().then {
-        $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        $0.setImage(UIImage(systemName: "trash"), for: .normal)
         $0.tintColor = .black
-        $0.transform = CGAffineTransform(rotationAngle: .pi * 0.5)
     }
     
     private let imageView3 = UIImageView().then {
@@ -112,9 +110,8 @@ class MyPageVC: BaseVC<MyPageViewModel> {
     }
     
     private let button3 = UIButton(type: .system).then {
-        $0.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        $0.setImage(UIImage(systemName: "trash"), for: .normal)
         $0.tintColor = .black
-        $0.transform = CGAffineTransform(rotationAngle: .pi * 0.5)
         $0.showsMenuAsPrimaryAction = true
     }
     
@@ -155,12 +152,16 @@ class MyPageVC: BaseVC<MyPageViewModel> {
         alert.addAction(cancle)
         alert.addAction(ok)
 
-        let favorite = UIAction(title: "수정하기", handler: { _ in self.navigationController?.pushViewController(PostVC(viewModel: .init()), animated: false) })
-        let cancel = UIAction(title: "삭제하기", attributes: .destructive, handler: { _ in self.present(alert, animated: true) })
-
-        button3.menu = UIMenu(identifier: nil,
-                             options: .displayInline,
-                             children: [favorite, cancel])
+//        let favorite = UIAction(title: "수정하기", handler: { _ in self.navigationController?.pushViewController(PostVC(viewModel: .init()), animated: false) })
+//        let cancel = UIAction(title: "삭제하기", attributes: .destructive, handler: { _ in self.present(alert, animated: true) })
+//
+//        button3.menu = UIMenu(identifier: nil,
+//                             options: .displayInline,
+//                             children: [favorite, cancel])
+        
+        button3.rx.tap.subscribe(onNext: {
+            self.present(alert, animated: true)
+        }).disposed(by: disposeBag)
         
         navigationController?.isNavigationBarHidden = true
     }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ShottingStar.svg",
+      "filename" : "stasr.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ShottingStar 1.svg",
+      "filename" : "stasr 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ShottingStar 2.svg",
+      "filename" : "stasr 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
