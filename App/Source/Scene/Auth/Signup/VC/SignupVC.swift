@@ -80,6 +80,13 @@ class SignupVC: BaseVC<SignupVM> {
     }
     override func configureVC() {
         view.backgroundColor = UIColor(named: "Main")
+        
+        
+        showConstellationModalButton.rx.tap
+            .subscribe(onDisposed:  {
+                self.showConstellationModalButton.setTitle("참새자리", for: .normal)
+            }).disposed(by: disposeBag)
+        
         signupButton.rx.tap
             .subscribe(onNext: {
                 Auth.auth().createUser(withEmail: self.emailTF.text!, password: self.passwordTF.text!
