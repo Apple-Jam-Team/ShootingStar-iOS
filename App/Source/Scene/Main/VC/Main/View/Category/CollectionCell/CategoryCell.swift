@@ -4,15 +4,15 @@ import UIKit
 
 final class CategorySectionViewCell: UICollectionViewCell {
     static let identifier = "CategoryCollectionViewCell"
-    static var height: CGFloat { 100.0 }
-    static var width: CGFloat { 100.0 }
+    static var height: CGFloat { 90.0 }
+    static var width: CGFloat { 90.0 }
     
     internal lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .gray
         imageView.layer.borderColor = UIColor.tertiaryLabel.cgColor
         imageView.layer.borderWidth = 0.5
-        imageView.layer.cornerRadius = 7.0
+        imageView.layer.cornerRadius = 20.0
 
         return imageView
     }()

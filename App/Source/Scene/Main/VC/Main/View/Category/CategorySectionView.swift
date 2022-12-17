@@ -6,7 +6,7 @@ import RxCocoa
 
 class CategorySectionView: UIView {
     private final var controller: UIViewController
-    private var array = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+    private var array = ["1","2","3","4","5","6","7","8"]
     var disposeBag = DisposeBag()
     
     private lazy var categoryLabel = UILabel().then {
@@ -75,7 +75,18 @@ extension CategorySectionView {
                         cellIdentifier: CategorySectionViewCell.identifier,
                         cellType: CategorySectionViewCell.self)
             ) { index, recommend, cell in
-                cell.layer.cornerRadius = 20
+                if index == 0 {
+                    cell.titleLabel.text = "추천 ✨"
+                } else if index == 1 {
+                    cell.titleLabel.text = "인기 💡"
+                } else if index == 2 {
+                    cell.titleLabel.text = "카테 ✨"
+                } else if index == 3 {
+                    cell.titleLabel.text = "고리 💡"
+                } else if index == 4 {
+                    cell.titleLabel.text = "알잘 ✨"
+                }
+                self.layer.cornerRadius = 20
             }.disposed(by: disposeBag)
     }
     
@@ -95,8 +106,8 @@ extension CategorySectionView {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.top.equalTo(categoryLabel.snp.bottom).offset(20.0)
-            $0.height.equalTo(100)
-            $0.width.equalTo(100)
+            $0.height.equalTo(20)
+            $0.width.equalTo(20)
             $0.bottom.equalToSuperview()
         }
         

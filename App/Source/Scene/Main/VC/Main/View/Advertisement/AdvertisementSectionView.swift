@@ -44,7 +44,7 @@ final class AdvertisementSectionView: UIView {
     
     private let pageContentView = UIView()
 
-    private let separatorView = SeparatorView(frame: .zero)
+//    private let separatorView = SeparatorView(frame: .zero)
     
     private func addContentScrollView() {
         

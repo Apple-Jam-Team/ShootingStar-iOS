@@ -4,6 +4,7 @@ class MainVC: BaseVC<BaseViewModel> {
 
     override func configureVC() {
         view.backgroundColor = .systemBackground
+//        setupNavigationController()
     }
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -50,6 +51,21 @@ class MainVC: BaseVC<BaseViewModel> {
         ].forEach {
             stackView.addArrangedSubview($0)
         }
+    }
+    
+    func setupNavigationController() {
+
+        let bar: UINavigationBar! = self.navigationController?.navigationBar
+
+        bar.backgroundColor = .clear
+        bar.setBackgroundImage(UIImage(), for: .default)
+        bar.shadowImage = UIImage()
+        bar.isTranslucent = true
+        let bellNavigetionItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: nil, action: nil)
+        
+        [bellNavigetionItem].forEach { $0.tintColor = .white }
+
+        navigationItem.rightBarButtonItems = [bellNavigetionItem]
     }
     
     override func setLayout() {
