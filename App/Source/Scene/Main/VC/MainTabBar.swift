@@ -9,7 +9,7 @@ class MainTabBar: UITabBarController {
         let mainVC = MainVC(viewModel: .init())
         let myPageVC = MyPageVC(viewModel: .init())
 
-        self.setViewControllers([voteVC, mainVC, myPageVC], animated: false)
+        self.setViewControllers([mainVC, voteVC, myPageVC], animated: false)
 
         guard let items = self.tabBar.items else { return }
 
