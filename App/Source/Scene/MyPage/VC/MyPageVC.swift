@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import Then
+import FirebaseAuth
 import SnapKit
 
 class MyPageVC: BaseVC<MyPageViewModel> {
@@ -120,9 +121,25 @@ class MyPageVC: BaseVC<MyPageViewModel> {
     override func configureVC() {
         
         scrollView.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height)
+        
+        let alert2 = UIAlertController(title:"로그아웃",
+                                       message: "정말로 로그아웃을 하시겠습니까?",
+                                       preferredStyle: UIAlertController.Style.alert)
+        let cancle2 = UIAlertAction(title: "취소", style: .default, handler: nil)
+        let ok2 = UIAlertAction(title: "확인", style: .destructive, handler: {
+            action in
+            do {
+               try Auth.auth().signOut()
+                self.navigationController?.setViewControllers([OnBoardingVC(viewModel: .init())], animated: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        })
+        alert2.addAction(cancle2)
+        alert2.addAction(ok2)
         logoutButton.rx.tap
             .subscribe(onNext: {
-                self.navigationController?.setViewControllers([OnBoardingVC(viewModel: .init())], animated: true)
+                self.present(alert2, animated: true)
             }).disposed(by: disposeBag)
         
         let alert = UIAlertController(title:"정말로요?",
@@ -137,8 +154,8 @@ class MyPageVC: BaseVC<MyPageViewModel> {
         })
         alert.addAction(cancle)
         alert.addAction(ok)
-        
-        let favorite = UIAction(title: "수정하기", handler: { _ in print("수정하기") })
+
+        let favorite = UIAction(title: "수정하기", handler: { _ in self.navigationController?.pushViewController(PostVC(viewModel: .init()), animated: false) })
         let cancel = UIAction(title: "삭제하기", attributes: .destructive, handler: { _ in self.present(alert, animated: true) })
 
         button3.menu = UIMenu(identifier: nil,

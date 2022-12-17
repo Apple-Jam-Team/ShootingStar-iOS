@@ -127,7 +127,6 @@ extension CategorySectionView {
                         cellType: CategorySectionViewCell.self)
             ) { index, recommend, cell in
                 if index == 0 {
-                    cell.titleLabel.text = "추천 ✨"
                 } else if index == 1 {
                     cell.titleLabel.text = "인기 💡"
                 } else if index == 2 {
