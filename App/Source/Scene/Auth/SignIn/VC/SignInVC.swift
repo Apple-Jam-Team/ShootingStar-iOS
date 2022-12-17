@@ -3,7 +3,7 @@ import Firebase
 import Then
 import SnapKit
 
-class SignInVC: BaseVC<BaseViewModel> {
+class SignInVC: BaseVC<SigninViewModel> {
     private var emailTF = UITextField().then {
         $0.placeholder = "이메일을 입력하세요"
     }
@@ -15,12 +15,7 @@ class SignInVC: BaseVC<BaseViewModel> {
 //        view.backgroundColor = .blue
     }
     override func addView() {
-        [
-            emailTF,
-            passwordTF
-        ].forEach {
-            view.addSubview($0)
-        }
+        view.addSubViews(emailTF, passwordTF)
     }
     override func setLayout() {
         emailTF.snp.makeConstraints {

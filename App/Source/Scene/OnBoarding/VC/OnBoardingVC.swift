@@ -11,19 +11,19 @@ class OnBoardingVC: BaseVC<OnBoardingViewModel> {
     }
     private let goToSignInButton = UIButton().then {
         $0.setTitle("로그인", for: .normal)
-        $0.backgroundColor = UIColor(.disabledButton)
+        $0.backgroundColor = ShootingStarAsset.Colors.lightGary.color
         $0.layer.cornerRadius = 20
     }
     private let goToSignUpButton = UIButton().then {
         $0.setTitle("회원가입", for: .normal)
-        $0.backgroundColor = UIColor(.disabledButton)
+        $0.backgroundColor = ShootingStarAsset.Colors.lightGary.color
         $0.layer.cornerRadius = 20
     }
     override func configureVC() {
-        view.backgroundColor = UIColor(.main)
+        view.backgroundColor = ShootingStarAsset.Colors.main.color
         goToSignInButton.rx.tap
             .subscribe(onNext: {
-                self.navigationController?.pushViewController(SignInVC(viewModel: BaseViewModel.init()), animated: true)
+                self.navigationController?.pushViewController(SignInVC(viewModel: .init()), animated: true)
             }).disposed(by: disposeBag)
     }
     
