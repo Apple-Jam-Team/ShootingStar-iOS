@@ -117,7 +117,7 @@ extension CategorySectionView: UICollectionViewDelegateFlowLayout {
 extension CategorySectionView {
     
     func attribute() {
-        self.backgroundColor = .black
+        self.backgroundColor = .white
         let data = Observable<[String]>.of(self.array)
         
         data.asObservable()

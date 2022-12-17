@@ -31,7 +31,7 @@ class ProductView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
 //        collectionView.isPagingEnabled = true
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
 
         
@@ -187,7 +187,7 @@ extension ProductView: UICollectionViewDataSource {
 extension ProductView {
     
     func attribute() {
-        self.backgroundColor = .black
+        self.backgroundColor = .white
     }
     
     func layout() {

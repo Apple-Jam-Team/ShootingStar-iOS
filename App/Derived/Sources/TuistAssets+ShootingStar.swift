@@ -10,9 +10,6 @@
 #elseif os(tvOS) || os(watchOS)
   import UIKit
 #endif
-#if canImport(SwiftUI)
-  import SwiftUI
-#endif
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
@@ -43,6 +40,8 @@ public enum ShootingStarAsset {
     public static let image7 = ShootingStarImages(name: "image7")
     public static let image8 = ShootingStarImages(name: "image8")
     public static let image9 = ShootingStarImages(name: "image9")
+    public static let 스크린샷20221218오전75228 = ShootingStarImages(name: "스크린샷 2022-12-18 오전 7.52.28")
+    public static let 스크린샷20221218오전75314 = ShootingStarImages(name: "스크린샷 2022-12-18 오전 7.53.14")
   }
   public enum Colors {
     public static let black = ShootingStarColors(name: "Black")
@@ -59,6 +58,7 @@ public enum ShootingStarAsset {
     public static let user2 = ShootingStarImages(name: "user2")
     public static let user3 = ShootingStarImages(name: "user3")
     public static let user4 = ShootingStarImages(name: "user4")
+    public static let 배너1 = ShootingStarImages(name: "배너1")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
@@ -101,7 +101,6 @@ public extension ShootingStarColors.Color {
   }
 }
 
-
 public struct ShootingStarImages {
   public fileprivate(set) var name: String
 
@@ -125,7 +124,6 @@ public struct ShootingStarImages {
     }
     return result
   }
-
 }
 
 public extension ShootingStarImages.Image {
@@ -142,7 +140,6 @@ public extension ShootingStarImages.Image {
     #endif
   }
 }
-
 
 // swiftlint:enable all
 // swiftformat:enable all

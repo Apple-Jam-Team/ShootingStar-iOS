@@ -18,20 +18,20 @@ final class ProductCell: UICollectionViewCell {
     
     var titleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14.0, weight: .bold)
-        $0.textColor = .white
+        $0.textColor = .black
         $0.text = "상품"
     }
     
     var descriptionLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14.0, weight: .regular)
-        $0.textColor = .white
+        $0.textColor = .black
         $0.numberOfLines = 0
         $0.text = "Made by appJam"
     }
 
     var PriceLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16.0, weight: .bold)
-        $0.textColor = .white
+        $0.textColor = .black
         $0.text = "1,000,000원"
     }
 

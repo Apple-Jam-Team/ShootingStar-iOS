@@ -27,7 +27,7 @@ class CategoryDetailViewController: UIViewController {
 //        layout.sectionInset = .zero
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .clear
+        cv.backgroundColor = .white
         return cv
     }()
     
@@ -130,7 +130,7 @@ extension CategoryDetailViewController {
     
     private func attribute() {
         
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         
         view.addSubview(collectionView)
         collectionView.delegate = self
