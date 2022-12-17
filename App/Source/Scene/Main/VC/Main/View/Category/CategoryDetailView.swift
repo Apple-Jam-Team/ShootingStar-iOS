@@ -110,7 +110,7 @@ extension CategoryDetailViewController : UICollectionViewDelegateFlowLayout {
 
         let width : CGFloat = (collectionView.bounds.width - 10 - itemSpacing * 2) / 2
 
-        return CGSize(width: width, height: width + 10)
+        return CGSize(width: width, height: width + 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -60,7 +60,7 @@ private extension CategoryCollectionViewCell {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(100.0)
+            $0.height.equalTo(150.0)
             $0.width.equalTo(100.0)
         }
         titleLabel.snp.makeConstraints {
