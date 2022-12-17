@@ -8,22 +8,16 @@ let project = Project.makeModule(
         .SnapKit,
         .Then,
         .RxSwift,
-        .RxFlow,
         .RxDataSources,
-        .Swinject,
         .FirebaseAuth,
-        .Tabman
     ],
     dependencies: [
         .SPM.SnapKit,
         .SPM.Then,
         .SPM.RxSwift,
-        .SPM.RxFlow,
         .SPM.RxDataSources,
         .SPM.RxCocoa,
-        .SPM.Swinject,
         .SPM.FirebaseAuth,
-        .SPM.Tabman
     ],
     resources: ["Resource/**"],
     infoPlist: .file(path: "Support/Info.plist")
