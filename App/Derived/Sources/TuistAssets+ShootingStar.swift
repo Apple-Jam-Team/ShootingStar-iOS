@@ -10,9 +10,6 @@
 #elseif os(tvOS) || os(watchOS)
   import UIKit
 #endif
-#if canImport(SwiftUI)
-  import SwiftUI
-#endif
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
@@ -43,13 +40,6 @@ public final class ShootingStarColors {
     return color
   }()
 
-  #if canImport(SwiftUI)
-  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-  public private(set) lazy var swiftUIColor: SwiftUI.Color = {
-    SwiftUI.Color(asset: self)
-  }()
-  #endif
-
   fileprivate init(name: String) {
     self.name = name
   }
@@ -68,16 +58,6 @@ public extension ShootingStarColors.Color {
     #endif
   }
 }
-
-#if canImport(SwiftUI)
-public extension SwiftUI.Color {
-  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-  init(asset: ShootingStarColors) {
-    let bundle = ShootingStarResources.bundle
-    self.init(asset.name, bundle: bundle)
-  }
-}
-#endif
 
 // swiftlint:enable all
 // swiftformat:enable all
