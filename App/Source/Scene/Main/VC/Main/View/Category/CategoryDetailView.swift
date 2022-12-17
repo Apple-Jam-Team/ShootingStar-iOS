@@ -16,6 +16,8 @@ class CategoryDetailViewController: UIViewController {
     
     open var Title = ""
     
+    var postNoticeModel = [PostNoticeModel]()
+    
     var array = ["first","second","third","fourth","fifth","6","7","8","9","10","11","12"]
     
     var collectionView : UICollectionView = {
@@ -48,6 +50,55 @@ class CategoryDetailViewController: UIViewController {
             ) { index, recommend, cell in
                 cell.setup()
                 cell.layer.cornerRadius = 10
+                if index == 0 {
+                    cell.imageView.image = UIImage(named: "image1")
+                    cell.titleLabel.text = "디자인이 하기 싶은 옷"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 1 {
+                    cell.imageView.image = UIImage(named: "image2")
+                    cell.titleLabel.text = "간지 나는 옷"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 2 {
+                    cell.imageView.image = UIImage(named: "image3")
+                    cell.titleLabel.text = "깔끔한 옷"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 3 {
+                    cell.imageView.image = UIImage(named: "image4")
+                    cell.titleLabel.text = "주목 받고 싶은 옷"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 4 {
+                    cell.imageView.image = UIImage(named: "image5")
+                    cell.titleLabel.text = "혼란의 가방"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 5 {
+                    cell.imageView.image = UIImage(named: "image6")
+                    cell.titleLabel.text = "깔끔한 옷"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 6 {
+                    cell.imageView.image = UIImage(named: "image7")
+                    cell.titleLabel.text = "소름 돋는 목걸이"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 7 {
+                    cell.imageView.image = UIImage(named: "image8")
+                    cell.titleLabel.text = "후드티"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 8 {
+                    cell.imageView.image = UIImage(named: "image9")
+                    cell.titleLabel.text = "다람쥐"
+                    cell.PriceLabel.text = "10,000"
+                } else if index == 9 {
+                    cell.imageView.image = UIImage(named: "image10")
+                    cell.titleLabel.text = "커스텀 모자"
+                    cell.PriceLabel.text = "10,000"
+                }else if index == 10 {
+                    cell.imageView.image = UIImage(named: "image11")
+                    cell.titleLabel.text = "널널한 후드"
+                    cell.PriceLabel.text = "10,000"
+                } else {
+                    cell.imageView.image = UIImage(named: "image12")
+                    cell.titleLabel.text = "멋진 옷"
+                    cell.PriceLabel.text = "10,000"
+                }
             }
     }
 }

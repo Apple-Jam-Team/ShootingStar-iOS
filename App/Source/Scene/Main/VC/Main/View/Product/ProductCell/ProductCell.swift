@@ -8,7 +8,7 @@ final class ProductCell: UICollectionViewCell {
     
     static var identifier = "ProductCell"
 
-    private lazy var imageView: UIImageView = {
+    var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.gray
         imageView.layer.cornerRadius = 20.0
@@ -16,20 +16,20 @@ final class ProductCell: UICollectionViewCell {
         return imageView
     }()
     
-    private lazy var titleLabel = UILabel().then {
+    var titleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14.0, weight: .bold)
         $0.textColor = .white
         $0.text = "상품"
     }
     
-    private lazy var descriptionLabel = UILabel().then {
+    var descriptionLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14.0, weight: .regular)
         $0.textColor = .white
         $0.numberOfLines = 0
         $0.text = "Made by appJam"
     }
 
-    private lazy var PriceLabel = UILabel().then {
+    var PriceLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16.0, weight: .bold)
         $0.textColor = .white
         $0.text = "1,000,000원"
