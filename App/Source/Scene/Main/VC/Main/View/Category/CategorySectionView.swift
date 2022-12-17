@@ -68,38 +68,47 @@ extension CategorySectionView: UICollectionViewDelegateFlowLayout {
         if indexPath.row == 0 {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "추천"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         } else if indexPath.row == 1 {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "인기"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         } else if indexPath.row == 2 {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "카테"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         } else if indexPath.row == 3 {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "고리"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         } else if indexPath.row == 4 {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "알잘"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         } else if indexPath.row == 5 {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "추천"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         } else if indexPath.row == 6 {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "예쁜"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         } else if indexPath.row == 7 {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "멋진"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         } else {
             let detailViewController = CategoryDetailViewController()
             detailViewController.modalPresentationStyle = .fullScreen
+            detailViewController.Title = "간지"
             controller.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

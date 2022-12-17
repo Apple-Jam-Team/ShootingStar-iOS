@@ -14,6 +14,8 @@ import SnapKit
 
 class CategoryDetailViewController: UIViewController {
     
+    open var Title = ""
+    
     var array = ["first","second","third","fourth","fifth","6","7","8","9","10","11","12"]
     
     var collectionView : UICollectionView = {
@@ -27,7 +29,7 @@ class CategoryDetailViewController: UIViewController {
         return cv
     }()
     
-    let sectionInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,8 @@ class CategoryDetailViewController: UIViewController {
 
         attribute()
         layout()
+        
+        title = "\(Title)"
         
         data.asObservable()
             .bind(to: collectionView.rx
@@ -51,11 +55,11 @@ class CategoryDetailViewController: UIViewController {
 extension CategoryDetailViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSpacing : CGFloat = 10
+        let itemSpacing : CGFloat = 20
 
         let width : CGFloat = (collectionView.bounds.width - 10 - itemSpacing * 2) / 2
 
-        return CGSize(width: width, height: width)
+        return CGSize(width: width, height: width + 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
