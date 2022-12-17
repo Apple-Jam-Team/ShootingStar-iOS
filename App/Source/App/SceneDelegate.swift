@@ -5,11 +5,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let c = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: c)
-        let controller = MainVC(nibName: nil, bundle: nil)
+       guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
 
-        window?.rootViewController = controller
+        let mainViewController = OnBoardingVC(viewModel: BaseViewModel.init())
+        let naviMainViewController = UINavigationController(rootViewController: mainViewController)
+        window?.rootViewController = naviMainViewController
         window?.makeKeyAndVisible()
     }
 
