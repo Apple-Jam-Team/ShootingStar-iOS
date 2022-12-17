@@ -10,7 +10,7 @@ class ProductView: UIView {
     private final var viewName: String
     let disposeBag = DisposeBag()
     
-    var postNoticeModel = [PostNoticeModel].self
+    var postNoticeModel: [PostNoticeModel] = []
     
     private lazy var newProductLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 24.0, weight: .black)
@@ -46,7 +46,7 @@ class ProductView: UIView {
     private lazy var separator = UIView().then {
         $0.backgroundColor = .separator
     }
-    
+
     init(frame: CGRect, viewController: UIViewController, viewName: String) {
         controller = viewController
         self.viewName = viewName
@@ -55,22 +55,38 @@ class ProductView: UIView {
         
         attribute()
         layout()
-//        let FullPath = "/Users/sunghun/Desktop/ios/test/ShootingStar-iOS/App/Source/AppData/GetNoticeDetail.json"
+        let FullPath = "/Users/junha/Desktop/ShootingStar/ShootingStar-iOS/App/Source/AppData/GetNoticeDetail.json"
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        
+//        if let data = try? String(contentsOfFile: FullPath).data(using: .utf8) {
+//                let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String : Any]]
+//                print(json)
+//        }
 //        guard let path = documentDirectory?.appendingPathComponent(FullPath) else { return }
 //        print()
-        if let data = try? String(contentsOfFile: FullPath).data(using: .utf8) {
-            guard let datas = String(data: data, encoding: .utf8) else { return }
-            print(datas)
-            do {
-                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String : Any]]
-                print("asdf", json as Any)
-            } catch {
-                print("asdf", error.localizedDescription)
-            }
-        } else {
-            print("asdf")
-        }
+        
+//        if let data = try? String(contentsOfFile: FullPath).data(using: .utf8) {
+//            guard let datas = String(data: data, encoding: .utf8) else { return }
+////            let data = try JSONDecoder().decode([PostNoticeModel].self, from: data.utf8)
+//
+//            if let data = try String(contentsOfFile: FullPath).data(using: .utf8) {
+//                    let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String : Any]]
+//                    print(json)
+//            }
+//            print(datas)
+//
+//
+//            let data = try JSONDecoder().decode(PostNoticeModel.self, from: )
+//            do {
+//                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String : Any]]
+//                print("asdf", json as Any)
+//            } catch {
+//                print("asdf", error.localizedDescription)
+//            }
+//        } else {
+//            print("asdf")
+//        }
+//
         
         
         

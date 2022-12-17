@@ -10,9 +10,6 @@
 #elseif os(tvOS) || os(watchOS)
   import UIKit
 #endif
-#if canImport(SwiftUI)
-  import SwiftUI
-#endif
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
@@ -80,13 +77,6 @@ public final class ShootingStarColors {
     return color
   }()
 
-  #if canImport(SwiftUI)
-  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-  public private(set) lazy var swiftUIColor: SwiftUI.Color = {
-    SwiftUI.Color(asset: self)
-  }()
-  #endif
-
   fileprivate init(name: String) {
     self.name = name
   }
@@ -105,16 +95,6 @@ public extension ShootingStarColors.Color {
     #endif
   }
 }
-
-#if canImport(SwiftUI)
-public extension SwiftUI.Color {
-  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-  init(asset: ShootingStarColors) {
-    let bundle = ShootingStarResources.bundle
-    self.init(asset.name, bundle: bundle)
-  }
-}
-#endif
 
 public struct ShootingStarImages {
   public fileprivate(set) var name: String
@@ -139,13 +119,6 @@ public struct ShootingStarImages {
     }
     return result
   }
-
-  #if canImport(SwiftUI)
-  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-  public var swiftUIImage: SwiftUI.Image {
-    SwiftUI.Image(asset: self)
-  }
-  #endif
 }
 
 public extension ShootingStarImages.Image {
@@ -162,26 +135,6 @@ public extension ShootingStarImages.Image {
     #endif
   }
 }
-
-#if canImport(SwiftUI)
-@available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-public extension SwiftUI.Image {
-  init(asset: ShootingStarImages) {
-    let bundle = ShootingStarResources.bundle
-    self.init(asset.name, bundle: bundle)
-  }
-
-  init(asset: ShootingStarImages, label: Text) {
-    let bundle = ShootingStarResources.bundle
-    self.init(asset.name, bundle: bundle, label: label)
-  }
-
-  init(decorative asset: ShootingStarImages) {
-    let bundle = ShootingStarResources.bundle
-    self.init(decorative: asset.name, bundle: bundle)
-  }
-}
-#endif
 
 // swiftlint:enable all
 // swiftformat:enable all

@@ -1,6 +1,7 @@
 import SnapKit
 import Then
 import UIKit
+import RxSwift
 
 final class AdvertisementSectionView: UIView {
     private final var controller: UIViewController
@@ -44,8 +45,6 @@ final class AdvertisementSectionView: UIView {
     
     private let pageContentView = UIView()
 
-//    private let separatorView = SeparatorView(frame: .zero)
-    
     private func addContentScrollView() {
         
         
