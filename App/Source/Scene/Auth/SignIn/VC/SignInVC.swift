@@ -58,6 +58,7 @@ class SignInVC: BaseVC<SigninVM> {
                 Auth.auth().signIn(withEmail: self.emailTF.text!, password: self.passwordTF.text!) { (user, error) in
                     if user != nil{
                         print("login success")
+                        self.navigationController?.pushViewController(MainVC(viewModel: MainViewModel()), animated: true)
                     }
                     else{
                         print("login fail")

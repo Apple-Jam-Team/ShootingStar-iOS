@@ -10,9 +10,6 @@
 #elseif os(tvOS) || os(watchOS)
   import UIKit
 #endif
-#if canImport(SwiftUI)
-  import SwiftUI
-#endif
 
 // swiftlint:disable superfluous_disable_command file_length implicit_return
 
@@ -48,11 +45,16 @@ public enum ShootingStarAsset {
     public static let black = ShootingStarColors(name: "Black")
     public static let darkGary = ShootingStarColors(name: "DarkGary")
     public static let error = ShootingStarColors(name: "ERROR")
+    public static let lightBlack = ShootingStarColors(name: "LightBlack")
     public static let lightGary = ShootingStarColors(name: "LightGary")
     public static let main = ShootingStarColors(name: "Main")
   }
   public enum Image {
     public static let shottingStar = ShootingStarImages(name: "ShottingStar")
+    public static let user1 = ShootingStarImages(name: "user1")
+    public static let user2 = ShootingStarImages(name: "user2")
+    public static let user3 = ShootingStarImages(name: "user3")
+    public static let user4 = ShootingStarImages(name: "user4")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
@@ -75,13 +77,6 @@ public final class ShootingStarColors {
     }
     return color
   }()
-
-  #if canImport(SwiftUI)
-  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-  public private(set) lazy var swiftUIColor: SwiftUI.Color = {
-    SwiftUI.Color(asset: self)
-  }()
-  #endif
 
   fileprivate init(name: String) {
     self.name = name
