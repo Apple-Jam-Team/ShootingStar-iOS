@@ -18,6 +18,27 @@
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum ShootingStarAsset {
   public static let accentColor = ShootingStarColors(name: "AccentColor")
+  public static let image1 = ShootingStarImages(name: "image1")
+  public static let image10 = ShootingStarImages(name: "image10")
+  public static let image11 = ShootingStarImages(name: "image11")
+  public static let image12 = ShootingStarImages(name: "image12")
+  public static let image13 = ShootingStarImages(name: "image13")
+  public static let image21 = ShootingStarImages(name: "image2.1")
+  public static let image2 = ShootingStarImages(name: "image2")
+  public static let image31 = ShootingStarImages(name: "image3.1")
+  public static let image32 = ShootingStarImages(name: "image3.2")
+  public static let image3 = ShootingStarImages(name: "image3")
+  public static let image41 = ShootingStarImages(name: "image4.1")
+  public static let image4 = ShootingStarImages(name: "image4")
+  public static let image51 = ShootingStarImages(name: "image5.1")
+  public static let image5 = ShootingStarImages(name: "image5")
+  public static let image61 = ShootingStarImages(name: "image6.1")
+  public static let image62 = ShootingStarImages(name: "image6.2")
+  public static let image6 = ShootingStarImages(name: "image6")
+  public static let image71 = ShootingStarImages(name: "image7.1")
+  public static let image7 = ShootingStarImages(name: "image7")
+  public static let image8 = ShootingStarImages(name: "image8")
+  public static let image9 = ShootingStarImages(name: "image9")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
@@ -53,6 +74,46 @@ public extension ShootingStarColors.Color {
     self.init(named: asset.name, in: bundle, compatibleWith: nil)
     #elseif os(macOS)
     self.init(named: NSColor.Name(asset.name), bundle: bundle)
+    #elseif os(watchOS)
+    self.init(named: asset.name)
+    #endif
+  }
+}
+
+public struct ShootingStarImages {
+  public fileprivate(set) var name: String
+
+  #if os(macOS)
+  public typealias Image = NSImage
+  #elseif os(iOS) || os(tvOS) || os(watchOS)
+  public typealias Image = UIImage
+  #endif
+
+  public var image: Image {
+    let bundle = ShootingStarResources.bundle
+    #if os(iOS) || os(tvOS)
+    let image = Image(named: name, in: bundle, compatibleWith: nil)
+    #elseif os(macOS)
+    let image = bundle.image(forResource: NSImage.Name(name))
+    #elseif os(watchOS)
+    let image = Image(named: name)
+    #endif
+    guard let result = image else {
+      fatalError("Unable to load image asset named \(name).")
+    }
+    return result
+  }
+}
+
+public extension ShootingStarImages.Image {
+  @available(macOS, deprecated,
+    message: "This initializer is unsafe on macOS, please use the ShootingStarImages.image property")
+  convenience init?(asset: ShootingStarImages) {
+    #if os(iOS) || os(tvOS)
+    let bundle = ShootingStarResources.bundle
+    self.init(named: asset.name, in: bundle, compatibleWith: nil)
+    #elseif os(macOS)
+    self.init(named: NSImage.Name(asset.name))
     #elseif os(watchOS)
     self.init(named: asset.name)
     #endif
