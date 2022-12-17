@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class BaseVC<T: BaseViewModel>: UIViewController{
+class BaseVC<T: BaseVM>: UIViewController{
     let bound = UIScreen.main.bounds
     var disposeBag: DisposeBag = .init()
     

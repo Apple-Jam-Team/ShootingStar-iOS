@@ -12,6 +12,7 @@ public extension TargetDependency.SPM {
     static let RxCocoa = TargetDependency.package(product: "RxCocoa")
     static let RxDataSources = TargetDependency.package(product: "RxDataSources")
     static let Swinject = TargetDependency.package(product: "Swinject")
+    static let FirebaseAuth = TargetDependency.package(product: "FirebaseAuth")
 }
 
 public extension Package {
@@ -38,5 +39,9 @@ public extension Package {
     static let Swinject = Package.remote(
         url: "https://github.com/Swinject/Swinject",
         requirement: .upToNextMajor(from: "2.8.3")
+    )
+    static let FirebaseAuth = Package.remote(
+        url: "https://github.com/firebase/firebase-ios-sdk",
+        requirement: .upToNextMajor(from: "10.3.0")
     )
 }
