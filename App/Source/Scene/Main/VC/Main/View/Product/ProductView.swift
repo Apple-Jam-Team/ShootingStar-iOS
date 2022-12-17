@@ -55,15 +55,24 @@ class ProductView: UIView {
         
         attribute()
         layout()
-        let fileManager = FileManager.default
-        let FullPath = "GetNotice.json"
+//        let FullPath = "/Users/sunghun/Desktop/ios/test/ShootingStar-iOS/App/Source/AppData/GetNoticeDetail.json"
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        let path = documentDirectory?.appendingPathComponent(FullPath)
-        print(path)
+//        guard let path = documentDirectory?.appendingPathComponent(FullPath) else { return }
+//        print()
         if let data = try? String(contentsOfFile: FullPath).data(using: .utf8) {
-                let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String : Any]]
-                print(json)
+            guard let datas = String(data: data, encoding: .utf8) else { return }
+            print(datas)
+            do {
+                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String : Any]]
+                print("asdf", json as Any)
+            } catch {
+                print("asdf", error.localizedDescription)
+            }
+        } else {
+            print("asdf")
         }
+        
+        
         
         collectionView.reloadData()
     }
