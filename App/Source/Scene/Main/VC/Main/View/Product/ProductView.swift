@@ -9,6 +9,8 @@ class ProductView: UIView {
     private final var viewName: String
     let disposeBag = DisposeBag()
     
+    var postNoticeModel = [PostNoticeModel].self
+    
     private lazy var newProductLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 24.0, weight: .black)
         $0.text = "신규 배지"
@@ -52,6 +54,12 @@ class ProductView: UIView {
         
         attribute()
         layout()
+        let FullPath = "/Users/userName/Desktop/GetNotice.json"
+        if let data = try? String(contentsOfFile: FullPath).data(using: .utf8) {
+                let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String : Any]]
+                print(json)
+        }
+        
         collectionView.reloadData()
     }
     
