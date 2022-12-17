@@ -3,7 +3,7 @@ import Firebase
 import Then
 import SnapKit
 
-class SignInVC: BaseVC<SigninVM> {
+class SignInVC: BaseVC<SigninViewModel> {
     private let logout = UIButton().then {
         $0.setTitle("임시 로그아웃 버튼", for: .normal)
         $0.setTitleColor(.black, for: .normal)
