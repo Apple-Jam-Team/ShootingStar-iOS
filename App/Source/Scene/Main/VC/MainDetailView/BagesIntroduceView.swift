@@ -8,28 +8,26 @@ class BagesIntroduceView: UIView {
     var bageList: PostNoticeModel?
     
     private lazy var mainBagesImage = UIImageView().then {
-        let imageName = "MainBage"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image)
+        $0.image = ShootingStarAsset.Assets.image1.image
         $0.backgroundColor = .gray
     }
     
     private lazy var bagesName = UILabel().then {
         $0.font = .systemFont(ofSize: 24.0, weight: .bold)
-        $0.textColor = .white
+        $0.textColor = .black
         $0.text = "상품 이름"
     }
     
     private lazy var bagesdescriptions = UILabel().then {
         $0.font = .systemFont(ofSize: 14.0, weight: .regular)
-        $0.textColor = .white
+        $0.textColor = .black
         $0.numberOfLines = 0
         $0.text = "설명설명설명설명설명설명설명설명설명설명\n설명설명설명설명설명설명설명설명설명설명설명"
     }
     
     private lazy var coinPriceLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16.0, weight: .bold)
-        $0.textColor = .white
+        $0.textColor = .black
         $0.text = "12,000원"
     }
     
@@ -39,7 +37,7 @@ class BagesIntroduceView: UIView {
     
     private lazy var nameLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 10.0, weight: .bold)
-        $0.textColor = .white
+        $0.textColor = .black
         $0.text = "Made by 준하팍"
     }
     
