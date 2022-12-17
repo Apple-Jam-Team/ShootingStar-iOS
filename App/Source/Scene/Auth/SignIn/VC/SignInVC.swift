@@ -3,11 +3,7 @@ import Firebase
 import Then
 import SnapKit
 
-class SignInVC: BaseVC<SigninVM> {
-    private let logout = UIButton().then {
-        $0.setTitle("임시 로그아웃 버튼", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
-    }
+class SignInVC: BaseVC<SigninViewModel> {
     private let titleImage = UIImageView().then {
         $0.image = UIImage(named: "ShottingStar")
     }
@@ -57,7 +53,7 @@ class SignInVC: BaseVC<SigninVM> {
             .subscribe(onNext: {
                 Auth.auth().signIn(withEmail: self.emailTF.text!, password: self.passwordTF.text!) { (user, error) in
                     if user != nil{
-                        print("login success")
+                        self.navigationController?.setViewControllers([MainTabBar(nibName: nil, bundle: nil)], animated: true)
                     }
                     else{
                         print("login fail")
@@ -68,18 +64,9 @@ class SignInVC: BaseVC<SigninVM> {
             .subscribe(onNext: {
                 self.navigationController?.pushViewController(SignupVC(viewModel: SignupVM()), animated: true)
             }).disposed(by: disposeBag)
-        logout.rx.tap
-            .subscribe(onNext: {
-                do {
-                    try Auth.auth().signOut()
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }).disposed(by: disposeBag)
     }
     override func addView() {
         [
-            logout,
             emailTF,
             passwordTF,
             titleImage,
@@ -115,10 +102,6 @@ class SignInVC: BaseVC<SigninVM> {
         noUserButton.snp.makeConstraints {
             $0.top.equalTo(signinButton.snp.bottom).inset(-15)
             $0.centerX.equalToSuperview()
-        }
-        logout.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(noUserButton.snp.bottom).offset(10)
         }
     }
 }

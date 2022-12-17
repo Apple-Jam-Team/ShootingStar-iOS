@@ -1,6 +1,6 @@
 import Foundation
 
-class SigninVM: BaseVM {
+class PostViewModel: BaseVM {
     struct Input {
         
     }
