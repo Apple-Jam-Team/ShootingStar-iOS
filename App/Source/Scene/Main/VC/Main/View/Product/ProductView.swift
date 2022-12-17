@@ -10,7 +10,7 @@ class ProductView: UIView {
     private final var viewName: String
     let disposeBag = DisposeBag()
     
-    var postNoticeModel: [PostNoticeModel] = []
+    var postNoticeModel = [PostNoticeModel]()
     
     private lazy var newProductLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 24.0, weight: .black)
@@ -55,6 +55,10 @@ class ProductView: UIView {
         
         attribute()
         layout()
+        
+        postNoticeModel = [
+            PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image1", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image2", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image3", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image4", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image5", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image6", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image7", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image8", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image9", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image10", productName: "멋진 상품", producer: "나나", price: 123)), PostNoticeModel(arrayLiteral: PostNoticeModelElement(noticeImage: "image11", productName: "멋진 상품", producer: "나나", price: 123))
+        ]
         let FullPath = "/Users/junha/Desktop/ShootingStar/ShootingStar-iOS/App/Source/AppData/GetNoticeDetail.json"
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         
@@ -88,8 +92,6 @@ class ProductView: UIView {
 //        }
 //
         
-        
-        
         collectionView.reloadData()
     }
     
@@ -110,7 +112,7 @@ extension ProductView: UICollectionViewDelegateFlowLayout {
 
 extension ProductView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return postNoticeModel.count
     }
       
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -119,18 +121,66 @@ extension ProductView: UICollectionViewDataSource {
             for: indexPath
         ) as? ProductCell
         cell!.setup()
+        if indexPath.row == 0 {
+            cell?.imageView.image = UIImage(named: "image1")
+            cell?.titleLabel.text = "디자인이 하기 싶은 옷"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 1 {
+            cell?.imageView.image = UIImage(named: "image2")
+            cell?.titleLabel.text = "간지 나는 옷"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 2 {
+            cell?.imageView.image = UIImage(named: "image3")
+            cell?.titleLabel.text = "깔끔한 옷"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 3 {
+            cell?.imageView.image = UIImage(named: "image4")
+            cell?.titleLabel.text = "주목 받고 싶은 옷"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 4 {
+            cell?.imageView.image = UIImage(named: "image5")
+            cell?.titleLabel.text = "혼란의 가방"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 5 {
+            cell?.imageView.image = UIImage(named: "image6")
+            cell?.titleLabel.text = "깔끔한 옷"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 6 {
+            cell?.imageView.image = UIImage(named: "image7")
+            cell?.titleLabel.text = "소름 돋는 목걸이"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 7 {
+            cell?.imageView.image = UIImage(named: "image8")
+            cell?.titleLabel.text = "후드티"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 8 {
+            cell?.imageView.image = UIImage(named: "image9")
+            cell?.titleLabel.text = "다람쥐"
+            cell?.PriceLabel.text = "10,000"
+        } else if indexPath.row == 9 {
+            cell?.imageView.image = UIImage(named: "image10")
+            cell?.titleLabel.text = "커스텀 모자"
+            cell?.PriceLabel.text = "10,000"
+        }else if indexPath.row == 10 {
+            cell?.imageView.image = UIImage(named: "image11")
+            cell?.titleLabel.text = "널널한 후드"
+            cell?.PriceLabel.text = "10,000"
+        } else {
+            cell?.imageView.image = UIImage(named: "image12")
+            cell?.titleLabel.text = "멋진 옷"
+            cell?.PriceLabel.text = "10,000"
+        }
         cell!.backgroundColor = .clear
         return cell ?? UICollectionViewCell()
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let selectedSuggesion = bagesList[indexPath.row]
-//        print(bagesList[indexPath.row])
-//        let detailViewController = SuggesionDetailViewController()
-//        detailViewController.suggestion = selectedSuggesion
-//        controller.present(detailViewController, animated: true)
-//    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedSuggesion = postNoticeModel[indexPath.row]
+        print(postNoticeModel[indexPath.row])
+        let detailViewController = BagesDetailViewController()
+        detailViewController.bageList = selectedSuggesion
+        detailViewController.modalPresentationStyle = .fullScreen
+        controller.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
