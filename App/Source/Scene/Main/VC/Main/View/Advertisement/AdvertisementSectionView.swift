@@ -8,6 +8,8 @@ final class AdvertisementSectionView: UIView {
     
     var images = ["Image", "Image", "Image", "Image", "Image", "Image"]
     
+    private var array = ["1","2","3","4","5","6","7","8"]
+
     @objc
     private func pageControlDidTap(_ sender: UIPageControl) {
         let current = sender.currentPage
@@ -30,8 +32,8 @@ final class AdvertisementSectionView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
 
         collectionView.register(
-            UICollectionViewCell.self,
-            forCellWithReuseIdentifier: "advertisementSectionCollectionViewCell"
+            AdvertisementCell.self,
+            forCellWithReuseIdentifier: "AdvertisementCell"
         )
 
         return collectionView
@@ -40,7 +42,7 @@ final class AdvertisementSectionView: UIView {
     internal lazy var pageScrollView = UIScrollView().then {
         $0.showsHorizontalScrollIndicator = false
         $0.isPagingEnabled = true
-        $0.backgroundColor = .red
+        $0.backgroundColor = .gray
     }
     
     private let pageContentView = UIView()
@@ -95,9 +97,13 @@ extension AdvertisementSectionView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "advertisementSectionCollectionViewCell", for: indexPath)
-        cell.backgroundColor = UIColor.gray
-        return cell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "AdvertisementCell",
+            for: indexPath
+        ) as? AdvertisementCell
+        cell?.setup()
+        
+        return cell!
     }
 }
 
