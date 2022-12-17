@@ -12,84 +12,69 @@
         "price" : 20000
     },
     {
-        "noticeImage" : "image2",
-        "productName" : "2번 상품",
-        "producer" : "임태곤",
-        "price" : 30000
-    },
-    {
-        "noticeImage" : "image2",
-        "productName" : "2번 상품",
-        "producer" : "김성훈",
-        "price" : 40000
-    },
-    {
         "noticeImage" : "image3",
-        "productName" : "3번 상품",
-        "producer" : "김성훈",
-        "price" : 50000
+        "productName" : "사이드핀턱이 매력적인 와이드팬츠",
+        "producer" : "uin.mans",
+        "price" : 44000
     },
     {
         "noticeImage" : "image4",
-        "productName" : "4번 상품",
-        "producer" : "박준하",
-        "price" : 60000
+        "productName" : "FacetasmNike",
+        "producer" : "from.site",
+        "price" : 389,000
     },
     {
         "noticeImage" : "image5",
-        "productName" : "5번 상품",
-        "producer" : "박준하",
-        "price" : 70000
+        "productName" : "데이지 에코백",
+        "producer" : "soheecloset_2",
+        "price" : 12000
     },
     {
         "noticeImage" : "image6",
-        "productName" : "6번 상품",
-        "producer" : "박준하",
-        "price" : 80000
+        "productName" : "가네꼬 헤비니트",
+        "producer" : "apm_ordinary",
+        "price" : 60000
     },
     {
         "noticeImage" : "image7",
-        "productName" : "7번 상품",
+        "productName" : "매달린 여자 목거리",
         "producer" : "박준하",
-        "price" : 90000
+        "price" : 200000
     },
     {
         "noticeImage" : "image8",
-        "productName" : "8번 상품",
-        "producer" : "박준하",
-        "price" : 100000
+        "productName" : "hawk 후드",
+        "producer" : "hawk",
+        "price" : 80000
     },
     {
         "noticeImage" : "image9",
-        "productName" : "9번 상품",
-        "producer" : "박준하",
-        "price" : 110000
+        "productName" : "solf pouch",
+        "producer" : "다람쥐쥐",
+        "price" : 10000
     },
     {
         "noticeImage" : "image10",
-        "productName" : "10번 상품",
-        "producer" : "박준하",
-        "price" : 120000
+        "productName" : "nike wosh cap",
+        "producer" : "woincep",
+        "price" : 26100
     },
     {
         "noticeImage" : "image11",
-        "productName" : "11번 상품",
-        "producer" : "박준하",
-        "price" : 130000
+        "productName" : "벌룬 니트",
+        "producer" : "coze",
+        "price" : 110000
     },
     {
         "noticeImage" : "image12",
-        "productName" : "12번 상품",
-        "producer" : "박준하",
-        "price" : 140000
+        "productName" : "Twist",
+        "producer" : "nine",
+        "price" : 120000
     },
     {
         "noticeImage" : "image13",
-        "productName" : "13번 상품",
-        "producer" : "박준하",
-        "price" : 150000
+        "productName" : "Bambi and Friends Clear Case",
+        "producer" : "xhceeh",
+        "price" : 39000
     }
 ]
-
-
-
