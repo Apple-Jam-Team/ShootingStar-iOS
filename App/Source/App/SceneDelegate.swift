@@ -8,7 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
 
-        let mainViewController = OnBoardingVC(viewModel: OnBoardingViewModel())
+        let mainViewController = MainTabBar(nibName: nil, bundle: nil)
         let naviMainViewController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = naviMainViewController
         window?.makeKeyAndVisible()
